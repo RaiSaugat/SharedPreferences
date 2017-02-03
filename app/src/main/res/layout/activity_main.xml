@@ -9,30 +9,87 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.rai.sharedpreferencesdemo.MainActivity">
 
-    <EditText
-        android:layout_width="100dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:text="Name"
+        android:padding="10dp"
+        android:id="@+id/name"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editName"
+        android:layout_toRightOf="@+id/name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:padding="10dp"
+        android:layout_below="@+id/name"
+        android:id="@+id/phone"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editName"
+        android:id="@+id/editPhone"
+        android:inputType="number"
+        android:layout_toRightOf="@+id/phone"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:padding="10dp"
+        android:layout_below="@+id/phone"
+        android:id="@+id/email"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPhone"
+        android:id="@+id/editEmail"
+        android:layout_toRightOf="@+id/email"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Save"
         android:id="@+id/btnSet"
-        android:layout_below="@+id/editText"/>
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/editEmail"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Retrive"
         android:id="@+id/btnGet"
-        android:layout_below="@+id/btnSet"/>
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/editEmail"
+        android:layout_toRightOf="@+id/btnSet"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Clear"
+        android:layout_marginTop="10dp"
         android:id="@+id/btnClear"
-        android:layout_below="@+id/btnGet"/>
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:layout_below="@+id/editEmail"
+        android:layout_toRightOf="@+id/btnGet"/>
 </RelativeLayout>
