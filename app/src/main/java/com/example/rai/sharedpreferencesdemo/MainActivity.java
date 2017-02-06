@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import it.sephiroth.android.library.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     String Email= "user_email";
     EditText name, phone, email;
     Button bset, bget, bclear;
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         phone = (EditText)findViewById(R.id.editPhone);
         email = (EditText)findViewById(R.id.editEmail);
         bset = (Button) findViewById(R.id.btnSet);
-
+        img = (ImageView)findViewById(R.id.image);
+        Picasso.with(this).load("http://vignette2.wikia.nocookie.net/fifa/images/2/26/Manchester_United_logo.png/revision/latest?cb=20120420192747").into(img);
 
         bset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 String user = name.getText().toString();
                 String emailAdd = email.getText().toString();
                 String PhoneNo = phone.getText().toString();
-                int ph = Integer.parseInt(PhoneNo);
-                if(ph != 10)
-                {
-                    Toast.makeText(MainActivity.this, "Give 10 number for phone", Toast.LENGTH_SHORT).show();
-                }
-                else {
                     sharedPreferences = getSharedPreferences(MYPREFERENCES, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(Name, user);
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     email.setText("");
                     phone.setText("");
                     editor.commit();
-                }
+
             }
         });
         bget = (Button)findViewById(R.id.btnGet);
